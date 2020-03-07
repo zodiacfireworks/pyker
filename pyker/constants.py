@@ -1,0 +1,4 @@
+__all__ = ["VALUES", "SUITS"]
+
+VALUES = "23456789TJQKA"
+SUITS = "SHDC"
