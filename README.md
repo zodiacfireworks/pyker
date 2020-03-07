@@ -13,7 +13,7 @@
 
 # Pyker
 
-Simple pker game in pure python
+Simple poker game in pure python
 
 ## what to do with this library?
 
@@ -22,6 +22,14 @@ For now I just implmented an algorithm for ranking poker hands based on the desc
 > http://nsayer.blogspot.com/2007/07/algorithm-for-evaluating-poker-hands.html
 
 Please check `samples/Comparsion.ipynb` to se how it works
+
+## How to install
+
+You can install with pip
+
+```
+pip install pyker
+```
 
 ## How to test
 
