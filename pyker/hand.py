@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import List
 
-from .card import Card, Value
+from .card import Card, Suit, Value
 from .constants import VALUES
 
 __all__ = ["Result", "PokerHand"]
@@ -38,8 +38,12 @@ class PokerHand:
     def __str__(self) -> str:
         return " ".join(self.as_string_list())
 
-    def __eq__(self, other: PokerHand) -> bool:
-        return sorted(self.as_string_list()) == sorted(other.as_string_list())
+    def __eq__(self, other: object) -> bool:
+        as_string_list = getattr(other, "as_string_list")
+        if callable(as_string_list):
+            return sorted(self.as_string_list()) == sorted(as_string_list())
+
+        return False
 
     def __gt__(self, other: PokerHand):
         """Determine with hand is major than other.
@@ -62,7 +66,7 @@ class PokerHand:
         return [card.value for card in self.cards]
 
     @property
-    def suits(self) -> List[Value]:
+    def suits(self) -> List[Suit]:
         return [card.suit for card in self.cards]
 
     @property
